@@ -37,7 +37,7 @@ const typeDefs = gql`
         message: String
         launches: [Launch]
     }
-    
+
     type Query {
         launches: [Launch]!
         launch(id: ID!): Launch
