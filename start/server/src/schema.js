@@ -9,6 +9,12 @@ const typeDefs = gql`
         isBooked: Boolean!
     }
 
+    type LaunchConnection { # add this below the Query type as an additional type.
+        cursor: String!
+        hasMore: Boolean!
+        launches: [Launch]!
+    }
+
     type Rocket {
         id: ID!
         name: String
@@ -39,7 +45,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        launches: [Launch]!
+        launches(pageSize: Int, after: String): LaunchConnection!
         launch(id: ID!): Launch
         me: User
     }
